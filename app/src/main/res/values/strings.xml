@@ -6,4 +6,6 @@
     <string name="is_item_urgent_text">Urgent?</string>
     <string name="save_item_text">Save</string>
     <string name="cancel_text">Cancel</string>
+    <string name="item_name_text">Item name</string>
+    <string name="item_urgency_text">Item urgency</string>
 </resources>
