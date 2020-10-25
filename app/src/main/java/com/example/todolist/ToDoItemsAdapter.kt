@@ -1,12 +1,14 @@
 package com.example.todolist
 
+import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
-class ToDoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>):
+class ToDoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>, val activity:MainActivity):
     RecyclerView.Adapter<ToDoItemsAdapter.ViewHolder>() {
 
     class ViewHolder(val constraintLayout: ConstraintLayout): RecyclerView.ViewHolder(constraintLayout)
@@ -14,6 +16,27 @@ class ToDoItemsAdapter(private val todoItemsList: ArrayList<TodoItem>):
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val constraintLayout = LayoutInflater.from(parent.context).inflate(
             R.layout.to_do_item_layout, parent, false) as ConstraintLayout
+
+        constraintLayout.setOnClickListener(View.OnClickListener {
+            val nameTextView = constraintLayout.getChildAt(0) as TextView
+            val urgencyTextView = constraintLayout.getChildAt(1) as TextView
+            val nameText = nameTextView.text
+            val urgencyText = urgencyTextView.text
+            val isItemUrgent = if(urgencyText == "!!") true else false
+
+            val intent: Intent = Intent(parent.context, AddItemActivity::class.java)
+            intent.putExtra("ITEM_NAME", nameText)
+            intent.putExtra("ITEM_URGENCY", isItemUrgent)
+            activity.startActivity(intent)
+        })
+
+        constraintLayout.setOnLongClickListener(View.OnLongClickListener {
+            val position: Int = parent.indexOfChild(it)
+            activity.todoItemsList.removeAt(position)
+            notifyItemRemoved(position)
+            true
+        })
+
         return ViewHolder(constraintLayout)
     }
 

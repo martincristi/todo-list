@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         todoItemRecyclerView = findViewById(R.id.todo_item_recycle_view)
 
         recyclerLayoutManager = LinearLayoutManager(this)
-        recyclerAdapter = ToDoItemsAdapter(todoItemsList)
+        recyclerAdapter = ToDoItemsAdapter(todoItemsList, this)
 
         todoItemRecyclerView.apply {
             setHasFixedSize(true)

@@ -8,4 +8,6 @@
     <string name="cancel_text">Cancel</string>
     <string name="item_name_text">Item name</string>
     <string name="item_urgency_text">Item urgency</string>
+    <string name="add_item_message">Add a todo item</string>
+    <string name="edit_item_message">Edit a todo item</string>
 </resources>
