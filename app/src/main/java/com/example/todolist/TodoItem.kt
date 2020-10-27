@@ -6,6 +6,7 @@ class TodoItem(var name: String) {
 
     var isUrgent = false
     var date = Calendar.getInstance()
+    var dateString: String = getDateAsString()
 
     constructor(name: String, isUrgent: Boolean): this(name){
         this.isUrgent = isUrgent

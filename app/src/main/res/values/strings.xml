@@ -10,4 +10,6 @@
     <string name="item_urgency_text">Item urgency</string>
     <string name="add_item_message">Add a todo item</string>
     <string name="edit_item_message">Edit a todo item</string>
+    <string name="today_button_text">Today\'s Items</string>
+    <string name="past_button_text">Previous Items</string>
 </resources>

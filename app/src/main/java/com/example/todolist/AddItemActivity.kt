@@ -52,6 +52,8 @@ class AddItemActivity : AppCompatActivity() {
         } else {
             dbo.updateItem(dbo, this.oldItem, newTodoItem)
         }
+        val intent: Intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
     public fun cancelAction(view: View){
         val intent: Intent = Intent(this, MainActivity::class.java)
